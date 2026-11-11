@@ -1,0 +1,57 @@
+# Populate reviewed workbook/dashboard definitions locally. Never guess view IDs.
+dashboards = []
+
+[app]
+mode = "fixture"
+state_dir = "var"
+knowledge_root = "knowledge/mock-ui"
+secure_cookie = false
+io_concurrency = 8
+run_timeout_seconds = 120
+job_workers = 2
+max_jobs = 16
+job_ttl_seconds = 3600
+conversation_ttl_seconds = 86400
+max_knowledge_characters = 80000
+max_export_bytes = 64000000
+max_rows = 100000
+max_columns = 50
+max_cells = 5000000
+max_result_rows = 200
+calculation_timeout_seconds = 15
+duckdb_memory = "256MB"
+
+[identity]
+local_test_enabled = true
+resolver = ""
+tableau_username_env = "TABLEAU_CONNECTED_USERNAME"
+
+[stork]
+model = "gemini-3.5-flash"
+timeout_seconds = 30
+concurrency = 2
+max_prompt_characters = 120000
+max_model_calls = 12 # Includes classifier/planner/narrator and up to four document outlines, with bounded repairs.
+
+[tableau]
+server = "https://tableau.example.com"
+site = ""
+api_version = "3.28"
+client_id = ""
+secret_id = ""
+secret_value_env = "TABLEAU_CONNECTED_SECRET_VALUE"
+ca_bundle_env = "TABLEAU_CA_BUNDLE"
+
+[[users]]
+id = "synthetic-hk-rm"
+country = "HK"
+line_of_business = "Wealth"
+permissions = ["analytics.read", "pricing.read", "knowledge.read", "artifact.write", "tableau.read"]
+resources = ["mock:business", "mock:pricing"]
+
+[[users]]
+id = "synthetic-sg-rm"
+country = "SG"
+line_of_business = "Wealth"
+permissions = ["analytics.read", "pricing.read", "knowledge.read", "artifact.write", "tableau.read"]
+resources = ["mock:business", "mock:pricing"]

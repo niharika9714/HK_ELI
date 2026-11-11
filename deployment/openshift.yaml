@@ -1,0 +1,72 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: hkeli-state
+spec:
+  accessModes: [ReadWriteOnce]
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hkeli-intelligence
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels: {app: hkeli-intelligence}
+  template:
+    metadata:
+      labels: {app: hkeli-intelligence}
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile: {type: RuntimeDefault}
+      containers:
+        - name: app
+          image: image-registry.example.com/hkeli/intelligence:reviewed
+          ports: [{containerPort: 8021}]
+          envFrom:
+            - secretRef: {name: hkeli-runtime}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: {drop: [ALL]}
+          resources:
+            requests: {cpu: 250m, memory: 512Mi}
+            limits: {cpu: "2", memory: 2Gi}
+          readinessProbe:
+            httpGet: {path: /api/v1/ready, port: 8021}
+          livenessProbe:
+            httpGet: {path: /api/v1/health, port: 8021}
+          volumeMounts:
+            - {name: state, mountPath: /opt/hkeli/var}
+            - {name: temporary, mountPath: /tmp}
+            - {name: configuration, mountPath: /etc/hkeli, readOnly: true}
+      volumes:
+        - name: state
+          persistentVolumeClaim: {claimName: hkeli-state}
+        - name: temporary
+          emptyDir: {sizeLimit: 512Mi}
+        - name: configuration
+          configMap: {name: hkeli-config}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hkeli-intelligence
+spec:
+  selector: {app: hkeli-intelligence}
+  ports: [{name: http, port: 8021, targetPort: 8021}]
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: hkeli-intelligence
+spec:
+  to: {kind: Service, name: hkeli-intelligence}
+  port: {targetPort: http}
+  tls: {termination: edge, insecureEdgeTerminationPolicy: Redirect}

@@ -1,0 +1,18 @@
+FROM python:3.11-slim
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 HKELI_CONFIG=/etc/hkeli/config.local.toml
+WORKDIR /opt/hkeli
+COPY requirements.lock ./
+RUN pip install --no-cache-dir -r requirements.lock
+# Supply the approved private ada_genai wheel in your enterprise image build.
+COPY app ./app
+COPY hk_platform ./hk_platform
+COPY services ./services
+COPY domains ./domains
+COPY mock_data ./mock_data
+COPY knowledge ./knowledge
+COPY config ./config
+COPY run.py ./
+RUN mkdir -p /opt/hkeli/var && chgrp -R 0 /opt/hkeli && chmod -R g=u /opt/hkeli
+USER 1001
+EXPOSE 8021
+CMD ["waitress-serve","--listen=0.0.0.0:8021","--threads=8","--call","app:create_app"]

@@ -1,0 +1,37 @@
+{
+  "D1": {
+    "approved": true,
+    "version": "supplied-spec-v1",
+    "text": "Draft for internal discussion, not for onward distribution"
+  },
+  "D2": {
+    "approved": true,
+    "version": "supplied-spec-v1",
+    "text": "Figures marked MOCK are synthetic, for demonstration only, and are not bank data"
+  },
+  "D3": {
+    "approved": false,
+    "text": "Disclaimer Compliance: ELI product risk statement",
+    "owner": "Compliance: ELI product risk statement"
+  },
+  "D4": {
+    "approved": false,
+    "text": "Disclaimer Compliance: indicative pricing disclosure",
+    "owner": "Compliance: indicative pricing disclosure"
+  },
+  "D5": {
+    "approved": false,
+    "text": "Disclosure Business owner: projection method and assumptions disclosure",
+    "owner": "Business owner: projection method and assumptions disclosure"
+  },
+  "D6": {
+    "approved": true,
+    "version": "supplied-spec-v1",
+    "text": "Past performance is not indicative of future results"
+  },
+  "D7": {
+    "approved": false,
+    "text": "Disclaimer Compliance: external-use, confidentiality and suitability wording",
+    "owner": "Compliance: external-use, confidentiality and suitability wording"
+  }
+}

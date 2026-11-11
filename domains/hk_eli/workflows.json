@@ -1,0 +1,170 @@
+{
+  "Q1": {
+    "title": "Underlying concentration review",
+    "tasks": [
+      [
+        "eli.risk.concentration",
+        {}
+      ]
+    ]
+  },
+  "Q2": {
+    "title": "Executive intelligence pack",
+    "tasks": [
+      [
+        "eli.sales.performance",
+        {}
+      ],
+      [
+        "eli.rfq.conversion",
+        {}
+      ],
+      [
+        "eli.risk.concentration",
+        {}
+      ],
+      [
+        "eli.maturity.analyze",
+        {}
+      ],
+      [
+        "eli.rollover.opportunity",
+        {}
+      ],
+      [
+        "eli.client.engagement",
+        {}
+      ],
+      [
+        "eli.regional.performance",
+        {}
+      ],
+      [
+        "eli.digibank.journey",
+        {}
+      ],
+      [
+        "eli.product.yield",
+        {}
+      ],
+      [
+        "eli.sales.trend",
+        {}
+      ],
+      [
+        "analytics.forecast",
+        {
+          "source_task": "t9",
+          "column": "sales",
+          "operation": "forecast",
+          "date_column": "trade_date"
+        }
+      ]
+    ],
+    "sections": [
+      "Executive overview",
+      "Sales performance",
+      "Revenue",
+      "RFQ conversion",
+      "Underlying concentration",
+      "Product yield",
+      "Client engagement",
+      "Maturity pipeline",
+      "Rollover opportunities",
+      "Branch distribution",
+      "Regional distribution",
+      "Digital journey",
+      "Data quality and limitations",
+      "Review actions"
+    ]
+  },
+  "Q3": {
+    "title": "Indicative synthetic pricing draft",
+    "tasks": [
+      [
+        "eli.pricing.solve_coupon",
+        {
+          "basket": [
+            "SYN-STOCK-01"
+          ],
+          "tenor_months": 6
+        }
+      ],
+      [
+        "eli.pricing.solve_strike",
+        {
+          "basket": [
+            "SYN-STOCK-01"
+          ],
+          "tenor_months": 6
+        }
+      ]
+    ]
+  },
+  "Q4": {
+    "title": "Quoted coupon comparison",
+    "tasks": [
+      [
+        "eli.product.yield",
+        {}
+      ]
+    ]
+  },
+  "Q5": {
+    "title": "Client intelligence",
+    "tasks": [
+      [
+        "eli.client.intelligence",
+        {}
+      ],
+      [
+        "eli.client.engagement",
+        {}
+      ]
+    ]
+  },
+  "Q6": {
+    "title": "Maturities and rollover review",
+    "tasks": [
+      [
+        "eli.maturity.analyze",
+        {
+          "days": 5
+        }
+      ],
+      [
+        "eli.rollover.opportunity",
+        {
+          "days": 5
+        }
+      ]
+    ]
+  },
+  "Q7": {
+    "title": "Branch concentration",
+    "tasks": [
+      [
+        "eli.branch.concentration",
+        {}
+      ]
+    ]
+  },
+  "Q8": {
+    "title": "Regional performance",
+    "tasks": [
+      [
+        "eli.regional.performance",
+        {}
+      ]
+    ]
+  },
+  "Q9": {
+    "title": "Digital journey",
+    "tasks": [
+      [
+        "eli.digibank.journey",
+        {}
+      ]
+    ]
+  }
+}

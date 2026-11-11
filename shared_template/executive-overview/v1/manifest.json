@@ -1,0 +1,112 @@
+{
+  "id": "executive-overview",
+  "version": "1",
+  "enabled": true,
+  "status": "draft",
+  "title": "Executive Overview",
+  "audience": "Head of Sales and desk heads",
+  "audience_type": "internal",
+  "classification": "Internal — draft classification pending owner review",
+  "disabled_reason": "",
+  "use_when": [
+    "Executive deck",
+    "Management pack",
+    "Business overview slides"
+  ],
+  "do_not_use_when": [
+    "External/client distribution"
+  ],
+  "files": {
+    "pptx": "executive-overview/v1/template.pptx"
+  },
+  "instructions_file": "executive-overview/v1/instructions.md",
+  "sections": [
+    {
+      "id": "summary",
+      "title": "Executive summary",
+      "required": true,
+      "max_items": 5,
+      "max_images": 0
+    },
+    {
+      "id": "kpi",
+      "title": "KPI overview",
+      "required": true,
+      "max_items": 8,
+      "max_images": 0
+    },
+    {
+      "id": "findings",
+      "title": "Key findings",
+      "required": false,
+      "max_items": 8,
+      "max_images": 0
+    },
+    {
+      "id": "charts",
+      "title": "Chart with commentary",
+      "required": false,
+      "max_items": 3,
+      "max_images": 8
+    },
+    {
+      "id": "actions",
+      "title": "Actions and next steps",
+      "required": false,
+      "max_items": 5,
+      "max_images": 0
+    },
+    {
+      "id": "limitations",
+      "title": "Limitations and review points",
+      "required": true,
+      "max_items": 12,
+      "max_images": 0
+    },
+    {
+      "id": "evidence",
+      "title": "Evidence appendix",
+      "required": true,
+      "max_items": 12,
+      "max_images": 0
+    }
+  ],
+  "limits": {
+    "max_body_slides": 12,
+    "max_total_slides": 60,
+    "max_pages": 20,
+    "max_rows_per_sheet": 100000,
+    "max_columns": 50
+  },
+  "missing_data_policy": "disclose",
+  "freshness_days": null,
+  "branding_status": "Reference-inspired; official logo and approval pending",
+  "pptx_layout": {
+    "title_box": [
+      0.7,
+      0.5,
+      11.9,
+      1.1
+    ],
+    "body_box": [
+      0.7,
+      1.7,
+      11.9,
+      4.6
+    ],
+    "footer_box": [
+      0.7,
+      6.65,
+      11.9,
+      0.65
+    ],
+    "font": "Arial",
+    "title_color": "C00000",
+    "body_color": "1A1A1A",
+    "caption_color": "5F5F5F",
+    "title_size": 28,
+    "body_size": 16
+  },
+  "pdf_rendering": "Native PDF with shared outline; not a DOCX conversion or guaranteed page-identical copy",
+  "provenance": "Supplied HK ELI Document Templates.pdf and synthetic executive PPTX; spreadsheet structure inspected, figures excluded."
+}

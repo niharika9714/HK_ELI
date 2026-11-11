@@ -1,0 +1,27 @@
+{
+  "schema_version": "1",
+  "templates": [
+    {
+      "id": "executive-overview",
+      "manifest": "executive-overview/v1/manifest.json"
+    },
+    {
+      "id": "business-report",
+      "manifest": "business-report/v1/manifest.json"
+    },
+    {
+      "id": "client-briefing",
+      "manifest": "client-briefing/v1/manifest.json"
+    },
+    {
+      "id": "analytical-export",
+      "manifest": "analytical-export/v1/manifest.json"
+    }
+  ],
+  "defaults": {
+    "pptx": "executive-overview",
+    "docx": "business-report",
+    "pdf": "business-report",
+    "xlsx": "analytical-export"
+  }
+}

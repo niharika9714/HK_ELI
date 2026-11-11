@@ -1,0 +1,11 @@
+var/
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
+config/config.local.toml
+*.pem
+*.key
+shared_template/disclosures.local.json
+shared_template/references/

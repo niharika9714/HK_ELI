@@ -1,0 +1,346 @@
+[
+  {
+    "metric_id": "outstanding_notional",
+    "business_name": "Outstanding Notional",
+    "description": "Synthetic demonstration assumption; requires business confirmation.",
+    "formula": "sum(notional)",
+    "source_fields": [
+      "positions.notional"
+    ],
+    "data_grain": "declared synthetic source rows; group grain retained",
+    "date_role": "fixed fixture as-of or event date",
+    "currency": "single requested HKD or USD; no FX",
+    "aggregation": "sum",
+    "additive": true,
+    "null_handling": "do not fill missing values; missing dates excluded only from explicitly dated windows",
+    "snapshot_handling": "one fixed fixture snapshot; no repeated snapshot sums",
+    "approved_filters": [
+      "country",
+      "currency",
+      "days for maturity/rollover"
+    ],
+    "business_owner": "UNASSIGNED - business review pending",
+    "version": "synthetic-1.0",
+    "approval": "unapproved synthetic assumption"
+  },
+  {
+    "metric_id": "revenue",
+    "business_name": "Revenue",
+    "description": "Synthetic demonstration assumption; requires business confirmation.",
+    "formula": "sum(revenue)",
+    "source_fields": [
+      "sales.revenue"
+    ],
+    "data_grain": "declared synthetic source rows; group grain retained",
+    "date_role": "fixed fixture as-of or event date",
+    "currency": "single requested HKD or USD; no FX",
+    "aggregation": "sum",
+    "additive": true,
+    "null_handling": "do not fill missing values; missing dates excluded only from explicitly dated windows",
+    "snapshot_handling": "one fixed fixture snapshot; no repeated snapshot sums",
+    "approved_filters": [
+      "country",
+      "currency",
+      "days for maturity/rollover"
+    ],
+    "business_owner": "UNASSIGNED - business review pending",
+    "version": "synthetic-1.0",
+    "approval": "unapproved synthetic assumption"
+  },
+  {
+    "metric_id": "rfq_conversion",
+    "business_name": "Rfq Conversion",
+    "description": "Synthetic demonstration assumption; requires business confirmation.",
+    "formula": "distinct won RFQ IDs / distinct RFQ IDs",
+    "source_fields": [
+      "rfqs.id",
+      "rfqs.status"
+    ],
+    "data_grain": "declared synthetic source rows; group grain retained",
+    "date_role": "fixed fixture as-of or event date",
+    "currency": "single requested HKD or USD; no FX",
+    "aggregation": "ratio",
+    "additive": false,
+    "null_handling": "do not fill missing values; missing dates excluded only from explicitly dated windows",
+    "snapshot_handling": "one fixed fixture snapshot; no repeated snapshot sums",
+    "approved_filters": [
+      "country",
+      "currency",
+      "days for maturity/rollover"
+    ],
+    "business_owner": "UNASSIGNED - business review pending",
+    "version": "synthetic-1.0",
+    "approval": "unapproved synthetic assumption"
+  },
+  {
+    "metric_id": "customer_count",
+    "business_name": "Customer Count",
+    "description": "Synthetic demonstration assumption; requires business confirmation.",
+    "formula": "count distinct client",
+    "source_fields": [
+      "positions.client"
+    ],
+    "data_grain": "declared synthetic source rows; group grain retained",
+    "date_role": "fixed fixture as-of or event date",
+    "currency": "single requested HKD or USD; no FX",
+    "aggregation": "distinct_count",
+    "additive": false,
+    "null_handling": "do not fill missing values; missing dates excluded only from explicitly dated windows",
+    "snapshot_handling": "one fixed fixture snapshot; no repeated snapshot sums",
+    "approved_filters": [
+      "country",
+      "currency",
+      "days for maturity/rollover"
+    ],
+    "business_owner": "UNASSIGNED - business review pending",
+    "version": "synthetic-1.0",
+    "approval": "unapproved synthetic assumption"
+  },
+  {
+    "metric_id": "concentration",
+    "business_name": "Concentration",
+    "description": "Synthetic demonstration assumption; requires business confirmation.",
+    "formula": "underlying notional / full scoped notional",
+    "source_fields": [
+      "positions.underlying",
+      "positions.notional"
+    ],
+    "data_grain": "declared synthetic source rows; group grain retained",
+    "date_role": "fixed fixture as-of or event date",
+    "currency": "single requested HKD or USD; no FX",
+    "aggregation": "ratio",
+    "additive": false,
+    "null_handling": "do not fill missing values; missing dates excluded only from explicitly dated windows",
+    "snapshot_handling": "one fixed fixture snapshot; no repeated snapshot sums",
+    "approved_filters": [
+      "country",
+      "currency",
+      "days for maturity/rollover"
+    ],
+    "business_owner": "UNASSIGNED - business review pending",
+    "version": "synthetic-1.0",
+    "approval": "unapproved synthetic assumption"
+  },
+  {
+    "metric_id": "worst_of_exposure",
+    "business_name": "Worst Of Exposure",
+    "description": "Synthetic demonstration assumption; requires business confirmation.",
+    "formula": "sum(notional where fixture worst_of=1); primary allocation only",
+    "source_fields": [
+      "positions.worst_of",
+      "positions.notional"
+    ],
+    "data_grain": "declared synthetic source rows; group grain retained",
+    "date_role": "fixed fixture as-of or event date",
+    "currency": "single requested HKD or USD; no FX",
+    "aggregation": "sum",
+    "additive": true,
+    "null_handling": "do not fill missing values; missing dates excluded only from explicitly dated windows",
+    "snapshot_handling": "one fixed fixture snapshot; no repeated snapshot sums",
+    "approved_filters": [
+      "country",
+      "currency",
+      "days for maturity/rollover"
+    ],
+    "business_owner": "UNASSIGNED - business review pending",
+    "version": "synthetic-1.0",
+    "approval": "unapproved synthetic assumption"
+  },
+  {
+    "metric_id": "maturity_notional",
+    "business_name": "Maturity Notional",
+    "description": "Synthetic demonstration assumption; requires business confirmation.",
+    "formula": "sum scoped notional where as_of < maturity <= as_of+days",
+    "source_fields": [
+      "positions.maturity",
+      "positions.notional"
+    ],
+    "data_grain": "declared synthetic source rows; group grain retained",
+    "date_role": "fixed fixture as-of or event date",
+    "currency": "single requested HKD or USD; no FX",
+    "aggregation": "sum",
+    "additive": true,
+    "null_handling": "do not fill missing values; missing dates excluded only from explicitly dated windows",
+    "snapshot_handling": "one fixed fixture snapshot; no repeated snapshot sums",
+    "approved_filters": [
+      "country",
+      "currency",
+      "days for maturity/rollover"
+    ],
+    "business_owner": "UNASSIGNED - business review pending",
+    "version": "synthetic-1.0",
+    "approval": "unapproved synthetic assumption"
+  },
+  {
+    "metric_id": "rollover_rate",
+    "business_name": "Rollover Rate",
+    "description": "Synthetic demonstration assumption; requires business confirmation.",
+    "formula": "not implemented; no approved eligible-to-completed denominator",
+    "source_fields": [
+      "rollovers.eligible",
+      "rollovers.status"
+    ],
+    "data_grain": "declared synthetic source rows; group grain retained",
+    "date_role": "fixed fixture as-of or event date",
+    "currency": "single requested HKD or USD; no FX",
+    "aggregation": "ratio",
+    "additive": false,
+    "null_handling": "do not fill missing values; missing dates excluded only from explicitly dated windows",
+    "snapshot_handling": "one fixed fixture snapshot; no repeated snapshot sums",
+    "approved_filters": [
+      "country",
+      "currency",
+      "days for maturity/rollover"
+    ],
+    "business_owner": "UNASSIGNED - business review pending",
+    "version": "synthetic-1.0",
+    "approval": "unapproved synthetic assumption"
+  },
+  {
+    "metric_id": "product_yield",
+    "business_name": "Product Yield",
+    "description": "Synthetic demonstration assumption; requires business confirmation.",
+    "formula": "notional-weighted quoted coupon; never realized return",
+    "source_fields": [
+      "positions.coupon",
+      "positions.notional"
+    ],
+    "data_grain": "declared synthetic source rows; group grain retained",
+    "date_role": "fixed fixture as-of or event date",
+    "currency": "single requested HKD or USD; no FX",
+    "aggregation": "weighted_mean",
+    "additive": false,
+    "null_handling": "do not fill missing values; missing dates excluded only from explicitly dated windows",
+    "snapshot_handling": "one fixed fixture snapshot; no repeated snapshot sums",
+    "approved_filters": [
+      "country",
+      "currency",
+      "days for maturity/rollover"
+    ],
+    "business_owner": "UNASSIGNED - business review pending",
+    "version": "synthetic-1.0",
+    "approval": "unapproved synthetic assumption"
+  },
+  {
+    "metric_id": "coupon",
+    "business_name": "Coupon",
+    "description": "Synthetic demonstration assumption; requires business confirmation.",
+    "formula": "quoted percentage points",
+    "source_fields": [
+      "positions.coupon"
+    ],
+    "data_grain": "declared synthetic source rows; group grain retained",
+    "date_role": "fixed fixture as-of or event date",
+    "currency": "single requested HKD or USD; no FX",
+    "aggregation": "percentage",
+    "additive": false,
+    "null_handling": "do not fill missing values; missing dates excluded only from explicitly dated windows",
+    "snapshot_handling": "one fixed fixture snapshot; no repeated snapshot sums",
+    "approved_filters": [
+      "country",
+      "currency",
+      "days for maturity/rollover"
+    ],
+    "business_owner": "UNASSIGNED - business review pending",
+    "version": "synthetic-1.0",
+    "approval": "unapproved synthetic assumption"
+  },
+  {
+    "metric_id": "strike",
+    "business_name": "Strike",
+    "description": "Synthetic demonstration assumption; requires business confirmation.",
+    "formula": "synthetic indicative lookup only",
+    "source_fields": [
+      "pricing.strike"
+    ],
+    "data_grain": "declared synthetic source rows; group grain retained",
+    "date_role": "fixed fixture as-of or event date",
+    "currency": "single requested HKD or USD; no FX",
+    "aggregation": "percentage",
+    "additive": false,
+    "null_handling": "do not fill missing values; missing dates excluded only from explicitly dated windows",
+    "snapshot_handling": "one fixed fixture snapshot; no repeated snapshot sums",
+    "approved_filters": [
+      "country",
+      "currency",
+      "days for maturity/rollover"
+    ],
+    "business_owner": "UNASSIGNED - business review pending",
+    "version": "synthetic-1.0",
+    "approval": "unapproved synthetic assumption"
+  },
+  {
+    "metric_id": "ki_ko_indicators",
+    "business_name": "Ki Ko Indicators",
+    "description": "Synthetic demonstration assumption; requires business confirmation.",
+    "formula": "sum synthetic flags; not payoff or probability",
+    "source_fields": [
+      "positions.ki_flag",
+      "positions.ko_flag"
+    ],
+    "data_grain": "declared synthetic source rows; group grain retained",
+    "date_role": "fixed fixture as-of or event date",
+    "currency": "single requested HKD or USD; no FX",
+    "aggregation": "sum",
+    "additive": true,
+    "null_handling": "do not fill missing values; missing dates excluded only from explicitly dated windows",
+    "snapshot_handling": "one fixed fixture snapshot; no repeated snapshot sums",
+    "approved_filters": [
+      "country",
+      "currency",
+      "days for maturity/rollover"
+    ],
+    "business_owner": "UNASSIGNED - business review pending",
+    "version": "synthetic-1.0",
+    "approval": "unapproved synthetic assumption"
+  },
+  {
+    "metric_id": "client_engagement",
+    "business_name": "Client Engagement",
+    "description": "Synthetic demonstration assumption; requires business confirmation.",
+    "formula": "count unique synthetic engagement event IDs",
+    "source_fields": [
+      "engagement.id"
+    ],
+    "data_grain": "declared synthetic source rows; group grain retained",
+    "date_role": "fixed fixture as-of or event date",
+    "currency": "single requested HKD or USD; no FX",
+    "aggregation": "count",
+    "additive": false,
+    "null_handling": "do not fill missing values; missing dates excluded only from explicitly dated windows",
+    "snapshot_handling": "one fixed fixture snapshot; no repeated snapshot sums",
+    "approved_filters": [
+      "country",
+      "currency",
+      "days for maturity/rollover"
+    ],
+    "business_owner": "UNASSIGNED - business review pending",
+    "version": "synthetic-1.0",
+    "approval": "unapproved synthetic assumption"
+  },
+  {
+    "metric_id": "channel_conversion",
+    "business_name": "Channel Conversion",
+    "description": "Synthetic demonstration assumption; requires business confirmation.",
+    "formula": "not implemented as ratio; stage event counts returned separately",
+    "source_fields": [
+      "channel_events.id",
+      "channel_events.stage"
+    ],
+    "data_grain": "declared synthetic source rows; group grain retained",
+    "date_role": "fixed fixture as-of or event date",
+    "currency": "single requested HKD or USD; no FX",
+    "aggregation": "ratio",
+    "additive": false,
+    "null_handling": "do not fill missing values; missing dates excluded only from explicitly dated windows",
+    "snapshot_handling": "one fixed fixture snapshot; no repeated snapshot sums",
+    "approved_filters": [
+      "country",
+      "currency",
+      "days for maturity/rollover"
+    ],
+    "business_owner": "UNASSIGNED - business review pending",
+    "version": "synthetic-1.0",
+    "approval": "unapproved synthetic assumption"
+  }
+]
