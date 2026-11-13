@@ -27,6 +27,10 @@ resolver = ""
 tableau_username_env = "TABLEAU_CONNECTED_USERNAME"
 
 [stork]
+one_bank_id_env = "One_Bank_ID"
+one_bank_password_env = "One_BANK_PASSWORD"
+ssl_cert_file_env = "SSL_CERT_FILE"
+adapter = "app.integrations.vertex_adapter:generate"
 model = "gemini-3.5-flash"
 timeout_seconds = 30
 concurrency = 2
@@ -44,6 +48,7 @@ ca_bundle_env = "TABLEAU_CA_BUNDLE"
 
 [[users]]
 id = "synthetic-hk-rm"
+tableau_username = "" # Local-test fallback only; TABLEAU_CONNECTED_USERNAME takes priority.
 country = "HK"
 line_of_business = "Wealth"
 permissions = ["analytics.read", "pricing.read", "knowledge.read", "artifact.write", "tableau.read"]
@@ -51,6 +56,7 @@ resources = ["mock:business", "mock:pricing"]
 
 [[users]]
 id = "synthetic-sg-rm"
+tableau_username = "" # Corporate SSO supplies its own verified Tableau identity.
 country = "SG"
 line_of_business = "Wealth"
 permissions = ["analytics.read", "pricing.read", "knowledge.read", "artifact.write", "tableau.read"]

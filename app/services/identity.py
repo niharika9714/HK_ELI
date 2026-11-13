@@ -22,7 +22,7 @@ def current_user(config):
         profile=next((u for u in config['users'] if u['id']==session['user']),None)
         if not profile:raise PermissionError('Unknown profile.')
         identity=Identity.model_validate(profile)
-        identity.tableau_username=os.getenv(settings.get('tableau_username_env','TABLEAU_CONNECTED_USERNAME'),'')
+        identity.tableau_username=os.getenv(settings.get('tableau_username_env','TABLEAU_CONNECTED_USERNAME'),'') or identity.tableau_username
         return identity
     resolver=settings.get('resolver','')
     if not resolver:raise PermissionError('Corporate SSO resolver is not configured.')
